@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DOMAIN.Dtos.Usuario
+namespace DOMAIN.Helper.Enums.DB
 {
-    public class UsuarioDo
+    public enum TableDB
     {
+        tbl_usuario
     }
 }

@@ -8,18 +8,42 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Helper\Enums\" />
+    <Folder Include="Dtos\Archivos\" />
+    <Folder Include="Dtos\Financiero\" />
+    <Folder Include="Dtos\Inventario\" />
+    <Folder Include="Dtos\Transacciones\" />
+    <Folder Include="Entities\Inventario\" />
+    <Folder Include="Entities\Archivos\" />
+    <Folder Include="Entities\Financiero\" />
+    <Folder Include="Entities\Transacciones\" />
     <Folder Include="Config\" />
     <Folder Include="Constans\" />
-    <Folder Include="Interfaces\IServices\" />
-    <Folder Include="Interfaces\IRespositorio\" />
-    <Folder Include="Interfaces\IExtensionS\" />
-    <Folder Include="Interfaces\IExtensionR\" />
+    <Folder Include="Interfaces\IExtensionR\Archivos\" />
+    <Folder Include="Interfaces\IExtensionR\Financiero\" />
+    <Folder Include="Interfaces\IExtensionR\Inventario\" />
+    <Folder Include="Interfaces\IExtensionR\Persona\" />
+    <Folder Include="Interfaces\IExtensionR\Transacciones\" />
+    <Folder Include="Interfaces\IExtensionS\Archivos\" />
+    <Folder Include="Interfaces\IExtensionS\Financiero\" />
+    <Folder Include="Interfaces\IExtensionS\Inventario\" />
+    <Folder Include="Interfaces\IExtensionS\Persona\" />
+    <Folder Include="Interfaces\IExtensionS\Transacciones\" />
+    <Folder Include="Interfaces\IRespositorio\Archivos\" />
+    <Folder Include="Interfaces\IRespositorio\Financiero\" />
+    <Folder Include="Interfaces\IRespositorio\Inventario\" />
+    <Folder Include="Interfaces\IRespositorio\Persona\" />
+    <Folder Include="Interfaces\IRespositorio\Transacciones\" />
+    <Folder Include="Interfaces\IServices\Archivos\" />
+    <Folder Include="Interfaces\IServices\Financiero\" />
+    <Folder Include="Interfaces\IServices\Inventario\" />
+    <Folder Include="Interfaces\IServices\Persona\" />
+    <Folder Include="Interfaces\IServices\Transacciones\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.13.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.8" />

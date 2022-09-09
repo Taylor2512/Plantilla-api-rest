@@ -8,7 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repository\" />
+    <Folder Include="Repository\Archivos\" />
+    <Folder Include="Repository\Financiero\" />
+    <Folder Include="Repository\Inventario\" />
+    <Folder Include="Repository\Persona\" />
+    <Folder Include="Repository\Transacciones\" />
   </ItemGroup>
 
   <ItemGroup>

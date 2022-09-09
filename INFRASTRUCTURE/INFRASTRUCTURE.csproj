@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,8 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Config\Usuario\" />
-    <Folder Include="Interface\Usuario\" />
+    <Folder Include="Config\Archivos\" />
+    <Folder Include="Config\Financiero\" />
+    <Folder Include="Config\Inventario\" />
+    <Folder Include="Config\Transacciones\" />
+    <Folder Include="Interface\Archivos\" />
+    <Folder Include="Interface\Financiero\" />
+    <Folder Include="Interface\Inventario\" />
+    <Folder Include="Interface\Transacciones\" />
   </ItemGroup>
 
   <ItemGroup>

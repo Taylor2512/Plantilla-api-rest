@@ -1,8 +1,8 @@
-﻿using DOMAIN.Dtos.Usuario;
+﻿using DOMAIN.Dtos.Persona;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ApiBackStore.Controllers.Usuario
+namespace ApiBackStore.Controllers.Persona
 {
     [Route("api/[controller]")]
     [ApiController]

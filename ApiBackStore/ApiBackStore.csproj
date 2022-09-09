@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -20,6 +20,13 @@
     <ProjectReference Include="..\DOMAIN\DOMAIN.csproj" />
     <ProjectReference Include="..\INFRASTRUCTURE\INFRASTRUCTURE.csproj" />
     <ProjectReference Include="..\QUERY\QUERY.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\Archivos\" />
+    <Folder Include="Controllers\Financiero\" />
+    <Folder Include="Controllers\Inventario\" />
+    <Folder Include="Controllers\Transacciones\" />
   </ItemGroup>
 
 </Project>

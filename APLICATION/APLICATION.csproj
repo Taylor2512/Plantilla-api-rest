@@ -8,9 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="AppServices\Usuario\" />
-    <Folder Include="Interfaes\Usuario\" />
-    <Folder Include="ExtensionS\" />
+    <Folder Include="AppServices\Persona\" />
+    <Folder Include="ExtensionS\Archivos\" />
+    <Folder Include="ExtensionS\Financiero\" />
+    <Folder Include="ExtensionS\Inventario\" />
+    <Folder Include="ExtensionS\Persona\" />
+    <Folder Include="ExtensionS\Transacciones\" />
+    <Folder Include="Interfaes\Archivos\" />
+    <Folder Include="Interfaes\Financiero\" />
+    <Folder Include="Interfaes\Inventario\" />
+    <Folder Include="Interfaes\Persona\" />
+    <Folder Include="Interfaes\Transacciones\" />
   </ItemGroup>
 
   <ItemGroup>
