@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using APLICATION.AppServicesExternal.Azure;
+using DOMAIN.Interfaces.IServicesExternals.Azure;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,7 @@ namespace APLICATION.AppConfig
     {
         public static async Task InyectarServicios(this IServiceCollection services)
         {
+            services.AddScoped<IAzureStorageService, AzureStorageService>();
             await Task.CompletedTask;
         }
     }
