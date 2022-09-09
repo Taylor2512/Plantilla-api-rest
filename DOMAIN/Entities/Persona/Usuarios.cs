@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace DOMAIN.Entities.Persona
 {
-    public class Usuarios: IdentityUser
+    public class Usuarios : IdentityUser
     {
+        public Usuarios(string userName) : base(userName)
+        {
+        }
     }
 }

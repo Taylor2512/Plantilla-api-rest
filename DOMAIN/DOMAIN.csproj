@@ -12,7 +12,6 @@
     <Folder Include="Dtos\Financiero\" />
     <Folder Include="Dtos\Inventario\" />
     <Folder Include="Dtos\Transacciones\" />
-    <Folder Include="Entities\Archivos\" />
     <Folder Include="Entities\Financiero\" />
     <Folder Include="Entities\Transacciones\" />
     <Folder Include="Config\" />
