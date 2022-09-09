@@ -8,7 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="AppServices\Persona\" />
+    <Folder Include="AppServices\Archivos\" />
+    <Folder Include="AppServices\Financiero\" />
+    <Folder Include="AppServices\Inventario\" />
+    <Folder Include="AppServices\Transacciones\" />
     <Folder Include="ExtensionS\Archivos\" />
     <Folder Include="ExtensionS\Financiero\" />
     <Folder Include="ExtensionS\Inventario\" />

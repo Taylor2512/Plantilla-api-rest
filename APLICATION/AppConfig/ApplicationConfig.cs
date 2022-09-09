@@ -1,4 +1,5 @@
-﻿using APLICATION.AppServicesExternal.Azure;
+﻿using APLICATION.AppServices.Persona;
+using APLICATION.AppServicesExternal.Azure;
 using DOMAIN.Interfaces.IServicesExternals.Azure;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -13,6 +14,8 @@ namespace APLICATION.AppConfig
     {
         public static async Task InyectarServicios(this IServiceCollection services)
         {
+            services.AddScoped<IServicioUsuarios, UsuarioServices>();
+
             services.AddScoped<IAzureStorageService, AzureStorageService>();
             await Task.CompletedTask;
         }
