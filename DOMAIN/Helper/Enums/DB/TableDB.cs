@@ -8,6 +8,7 @@ namespace DOMAIN.Helper.Enums.DB
 {
     public enum TableDB
     {
-        tbl_usuario
+        tbl_usuario,
+        tbl_producto
     }
 }

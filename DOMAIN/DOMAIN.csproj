@@ -4,37 +4,23 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>True</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Dtos\Archivos\" />
     <Folder Include="Dtos\Financiero\" />
     <Folder Include="Dtos\Inventario\" />
     <Folder Include="Dtos\Transacciones\" />
     <Folder Include="Entities\Financiero\" />
     <Folder Include="Entities\Transacciones\" />
     <Folder Include="Config\" />
-    <Folder Include="Constans\" />
-    <Folder Include="Interfaces\IExtensionR\Archivos\" />
-    <Folder Include="Interfaces\IExtensionR\Financiero\" />
-    <Folder Include="Interfaces\IExtensionR\Inventario\" />
-    <Folder Include="Interfaces\IExtensionR\Persona\" />
-    <Folder Include="Interfaces\IExtensionR\Transacciones\" />
-    <Folder Include="Interfaces\IExtensionS\Archivos\" />
-    <Folder Include="Interfaces\IExtensionS\Financiero\" />
-    <Folder Include="Interfaces\IExtensionS\Inventario\" />
-    <Folder Include="Interfaces\IExtensionS\Persona\" />
-    <Folder Include="Interfaces\IExtensionS\Transacciones\" />
-    <Folder Include="Interfaces\IRespositorio\Archivos\" />
     <Folder Include="Interfaces\IRespositorio\Financiero\" />
-    <Folder Include="Interfaces\IRespositorio\Inventario\" />
-    <Folder Include="Interfaces\IRespositorio\Persona\" />
     <Folder Include="Interfaces\IRespositorio\Transacciones\" />
-    <Folder Include="Interfaces\IServices\Archivos\" />
     <Folder Include="Interfaces\IServices\Financiero\" />
-    <Folder Include="Interfaces\IServices\Inventario\" />
-    <Folder Include="Interfaces\IServices\Persona\" />
     <Folder Include="Interfaces\IServices\Transacciones\" />
   </ItemGroup>
 
@@ -53,6 +39,10 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.ApiDescription.Server" Version="6.0.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

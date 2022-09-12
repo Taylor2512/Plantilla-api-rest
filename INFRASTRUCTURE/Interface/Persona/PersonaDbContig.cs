@@ -16,6 +16,8 @@ namespace INFRASTRUCTURE.Interface.Persona
         public void Configure(EntityTypeBuilder<Usuarios> builder)
         {
             builder.ToTable(TableDB.tbl_usuario.ToString());
+            builder.HasMany(e => e.ImagenesPersona).WithOne(e => e.usuarios).HasForeignKey(e => e.IdUsuario);
+
 
         }
     }

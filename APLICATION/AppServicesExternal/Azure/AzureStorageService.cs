@@ -12,10 +12,15 @@ namespace APLICATION.AppServicesExternal.Azure
     {
         private readonly string azureStorageConnectionString;
 
-
+        private  IConfiguration configuration { set; get; }
         public AzureStorageService(IConfiguration configuration)
         {
             this.azureStorageConnectionString = configuration.GetValue<string>("AzureStorageConnectionString");
+        }
+        public AzureStorageService(string azureStorageConnectionString, IConfiguration configuration)
+        {
+            this.azureStorageConnectionString = azureStorageConnectionString;
+            this.configuration = configuration;
         }
 
         public async Task DeleteAsync(ContainerEnum container, string blobFilename)

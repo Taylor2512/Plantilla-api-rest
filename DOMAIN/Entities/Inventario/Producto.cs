@@ -10,12 +10,12 @@ namespace DOMAIN.Entities.Inventario
 {
     public class Producto : Entity<Guid>
     {
-        public string NameProduct { set; get; }
-        public string Description { set; get; }
+        public string? NameProduct { set; get; }
+        public string? Description { set; get; }
         public double Precio { set; get; }
         public int cantidad { set; get; }
-        public List<ImagenesProducto> imagenes { set; get; }
-        public Guid IdUsuario { set; get; }
+        public List<ImagenesProducto> imagenes { set; get; }= new List<ImagenesProducto>();
+        public Guid? IdUsuario { set; get; }
 
     }
 }

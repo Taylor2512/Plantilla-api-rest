@@ -54,20 +54,12 @@ namespace ApiBackStore.Config
                 });
 
                 // using System.Reflection;
-                var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+              /*  var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
-
-                var XMLAPPLICATION = Path.Combine(AppContext.BaseDirectory, "APLICATION.xml");
-                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, XMLAPPLICATION));
-
-                var xmldomain = Path.Combine(AppContext.BaseDirectory, "DOMAIN.xml");
-                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmldomain));
-
-                var xmlinfrastructure = Path.Combine(AppContext.BaseDirectory, "INFRASTRUCTURE.xml");
-                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlinfrastructure));
-                var xmlquery = Path.Combine(AppContext.BaseDirectory, "QUERY.xml");
-                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlquery));
-            });
+                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, APLICATION.Constants.Parameters.xmlAplication));
+                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, DOMAIN.Constans.Parameters.xmlDomain));
+                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, INFRASTRUCTURE.Constanst.Parameters.xmlInfrastructure));
+         */  });
 
             await Task.CompletedTask;
         }

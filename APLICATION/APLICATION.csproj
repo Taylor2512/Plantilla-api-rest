@@ -5,18 +5,17 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>True</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="AppServices\Archivos\" />
     <Folder Include="AppServices\Financiero\" />
-    <Folder Include="AppServices\Inventario\" />
     <Folder Include="AppServices\Transacciones\" />
-    <Folder Include="ExtensionS\Archivos\" />
-    <Folder Include="ExtensionS\Financiero\" />
-    <Folder Include="ExtensionS\Inventario\" />
-    <Folder Include="ExtensionS\Persona\" />
-    <Folder Include="ExtensionS\Transacciones\" />
     <Folder Include="Interfaes\Archivos\" />
     <Folder Include="Interfaes\Financiero\" />
     <Folder Include="Interfaes\Inventario\" />

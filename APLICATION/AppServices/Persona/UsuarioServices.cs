@@ -7,6 +7,12 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.Extensions.Configuration;
 using APLICATION.AppConfig;
+using DOMAIN.Helper.Tools;
+using DOMAIN.Interfaces.IServicesExternals.Azure;
+using DOMAIN.Interfaces.IServices.Persona;
+using DOMAIN.Interfaces.IExtensionR;
+using DOMAIN.Interfaces.IExtensionR.Persona;
+using AutoMapper;
 
 namespace APLICATION.AppServices.Persona
 {
@@ -15,14 +21,41 @@ namespace APLICATION.AppServices.Persona
         private readonly UserManager<Usuarios> userManager;
         private readonly SignInManager<Usuarios> signInManager;
         private readonly IConfiguration configuration;
+        private readonly IAzureStorageService azure;
+        private IExtensionRepository<IExtensionPersonaR> repository;
+        private IMapper mapper;
 
-        public async Task<IdentityResult> Registrar(CredencialesUsuario usuario)
+        public UsuarioServices(UserManager<Usuarios> userManager, SignInManager<Usuarios> signInManager, IConfiguration configuration, IAzureStorageService azure, IExtensionRepository<IExtensionPersonaR> repository, IMapper mapper)
+        {
+            this.userManager = userManager;
+            this.signInManager = signInManager;
+            this.configuration = configuration;
+            this.azure = azure;
+            this.repository = repository;
+            this.mapper = mapper;
+        }
+
+        public async Task<IdentityResult> Registrar(UsuarioDo usuario)
         {
             Usuarios usuarioIdentity = new Usuarios
             {
+                PhoneNumber = usuario.phone,
                 UserName = usuario.Email,
                 Email = usuario.Email,
+                ImagenesPersona = new List<DOMAIN.Entities.Archivos.ImagenesPersona>(),
             };
+            await usuario.Files.ForEachAsync(async e =>
+            {
+                
+                usuarioIdentity.ImagenesPersona.Add(new DOMAIN.Entities.Archivos.ImagenesPersona
+                {
+                    name = await azure.UploadAsync(e,DOMAIN.Helper.Enums.AppsExternals.ContainerEnum.IMAGENES),
+                    
+                });
+
+                await Task.CompletedTask;
+            });
+            
             var resultado = await userManager.CreateAsync(usuarioIdentity, usuario.Password);
 
             return resultado;
@@ -61,6 +94,12 @@ namespace APLICATION.AppServices.Persona
 
         }
 
+        public async Task<List<UsuarioDo>> GetAllUsers()
+        {
+           List<Usuarios> usuarios = new List<Usuarios>();
+            usuarios = await repository.ExtensionR.usuarioR.GetAllUsers();
+          return mapper.Map<List<UsuarioDo>>(usuarios); 
 
+       }
     }
 }
