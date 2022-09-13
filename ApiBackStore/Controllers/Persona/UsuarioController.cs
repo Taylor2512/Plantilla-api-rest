@@ -33,7 +33,7 @@ namespace ApiBackStore.Controllers.Persona
             return Ok(encontrado);
         }
         [HttpPost]
-        public async Task<ActionResult<object>> PostUsuario([FromForm][FromBody]  UsuarioDo entidad)
+        public async Task<ActionResult<object>> PostUsuario(  UsuarioDo entidad)
         {
             IdentityResult ecnontrado = await servicio.Extension.UsuarioS.Registrar(entidad);
 

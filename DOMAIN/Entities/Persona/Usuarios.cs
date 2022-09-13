@@ -23,7 +23,7 @@ namespace DOMAIN.Entities.Persona
 
         public string Name { set; get; }
         public string LastName { set; get; }
-        public List<ImagenesPersona> ImagenesPersona { get; set; }
+        public List<ImagenesPersona?>? ImagenesPersona { get; set; }
 
     }
 }

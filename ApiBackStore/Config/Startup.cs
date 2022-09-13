@@ -33,6 +33,16 @@ namespace ApiBackStore.Config
             builder.Services.AddSwaggerGen();
             await builder.InyectarDependencies();
             await builder.InyectarFormatoJSon();
+
+            builder.Services.AddCors(option =>
+            {
+                option.AddPolicy("TODO", builder =>
+                {
+                    builder.AllowAnyOrigin();
+                    builder.AllowAnyMethod();
+                    builder.AllowAnyHeader();
+                });
+            });
             builder.Services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new OpenApiInfo
@@ -78,7 +88,7 @@ namespace ApiBackStore.Config
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.UseCors("TODO");
             app.UseHttpsRedirection();
 
             app.UseAuthorization();

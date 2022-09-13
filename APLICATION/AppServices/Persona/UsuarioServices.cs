@@ -41,20 +41,26 @@ namespace APLICATION.AppServices.Persona
             {
                 PhoneNumber = usuario.phone,
                 UserName = usuario.Email,
+                LastName = usuario.LastName,
+                Name = usuario.Name,
                 Email = usuario.Email,
-                ImagenesPersona = new List<DOMAIN.Entities.Archivos.ImagenesPersona>(),
+               // ImagenesPersona = new List<DOMAIN.Entities.Archivos.ImagenesPersona>(),
             };
-            await usuario.Files.ForEachAsync(async e =>
+            if (usuario.Files!=null&& usuario.Files.Count > 0)
             {
-                
-                usuarioIdentity.ImagenesPersona.Add(new DOMAIN.Entities.Archivos.ImagenesPersona
+                await usuario.Files.ForEachAsync(async e =>
                 {
-                    name = await azure.UploadAsync(e,DOMAIN.Helper.Enums.AppsExternals.ContainerEnum.IMAGENES),
-                    
-                });
 
-                await Task.CompletedTask;
-            });
+                    usuarioIdentity.ImagenesPersona.Add(new DOMAIN.Entities.Archivos.ImagenesPersona
+                    {
+                        name = await azure.UploadAsync(e, DOMAIN.Helper.Enums.AppsExternals.ContainerEnum.IMAGENES),
+
+                    });
+
+                    await Task.CompletedTask;
+                });
+            }
+           
             
             var resultado = await userManager.CreateAsync(usuarioIdentity, usuario.Password);
 
