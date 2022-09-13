@@ -67,13 +67,13 @@ namespace APLICATION.AppServices.Persona
             return resultado;
         }
 
-        public async Task<SignInResult> Login(CredencialesUsuario credencialesUsuario)
+        public async Task<SignInResult> Login(LoginDto credencialesUsuario)
         {
-            var resultado = await signInManager.PasswordSignInAsync(credencialesUsuario.Email, credencialesUsuario.Password,
+            var resultado = await signInManager.PasswordSignInAsync(credencialesUsuario.Email, credencialesUsuario.Passwork,
                 isPersistent: false, lockoutOnFailure: false);
             return resultado;
         }
-        public async Task<RespuestaAutenticacion> ConstruirToken(CredencialesUsuario credencialesUsuario)
+        public async Task<RespuestaAutenticacion> ConstruirToken(LoginDto credencialesUsuario)
         {
             var Claims = new List<Claim>()
             {
@@ -83,7 +83,7 @@ namespace APLICATION.AppServices.Persona
             var ClaimsDb = await userManager.GetClaimsAsync(usuario);
             Claims.AddRange(ClaimsDb);
             var llave = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["LlaveJwt"]));
-            var cred = new SigningCredentials(llave, SecurityAlgorithms.Aes128CbcHmacSha256);
+            var cred = new SigningCredentials(llave, SecurityAlgorithms.HmacSha256);
             var expiracion = DateTime.UtcNow.AddDays(2);
             var securityToken = new JwtSecurityToken(issuer: null, audience: null, claims: Claims, expires: expiracion, signingCredentials: cred);
             return new RespuestaAutenticacion

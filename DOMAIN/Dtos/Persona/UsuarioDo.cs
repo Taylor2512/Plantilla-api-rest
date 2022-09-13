@@ -16,4 +16,9 @@ namespace DOMAIN.Dtos.Persona
         public string phone { get; set; }
         public List<IFormFile?>? Files { set; get; } 
     }
+    public class LoginDto
+    {
+        public string Email { set; get; }
+        public string Passwork { set; get; }
+    }
 }

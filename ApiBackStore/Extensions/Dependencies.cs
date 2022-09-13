@@ -17,6 +17,7 @@ namespace ApiBackStore.Extensions
             await builder.Services.InyectarServicios();
             await builder.Services.InyectarRepositorios();
             await builder.InyectJsonnAppeSettings();
+          await builder.Services.IyectarAuthentication(builder.Configuration);
 
             await Task.CompletedTask;
         }

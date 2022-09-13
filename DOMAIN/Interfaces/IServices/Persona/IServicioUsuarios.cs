@@ -10,7 +10,9 @@ namespace DOMAIN.Interfaces.IServices.Persona
 {
     public interface IServicioUsuarios
     {
+        Task<RespuestaAutenticacion> ConstruirToken(LoginDto entidad);
         Task<List<UsuarioDo>> GetAllUsers();
+        Task<SignInResult> Login(LoginDto entidad);
         Task<IdentityResult> Registrar(UsuarioDo entidad);
     }
 }

@@ -1,9 +1,12 @@
 ﻿using DOMAIN.Entities.Persona;
 using INFRASTRUCTURE.Contexto;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System.Text;
 using System.Text.Json.Serialization;
 
 namespace ApiBackStore.Extensions
@@ -51,6 +54,34 @@ namespace ApiBackStore.Extensions
         {
           //  await builder.Services.InyectJsonnAppeSettings(builder.Configuration);
 
+        }
+        public static async Task IyectarAuthentication( this IServiceCollection Services, IConfiguration Configuration)
+        {
+            Services.AddAuthentication(option =>
+            {
+                option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["LlaveJwt"])),
+
+
+                    };
+                });
+            Services.AddAuthorization(options =>
+            {
+                options.AddPolicy("EsAdmin", politica => politica.RequireClaim("EsAdmin"));
+                options.AddPolicy("EsVendedor", politica => politica.RequireClaim("EsVendedor"));
+                options.AddPolicy("EsComprador", politica => politica.RequireClaim("EsComprador"));
+            });
+
+            await Task.CompletedTask;
         }
     }
 }

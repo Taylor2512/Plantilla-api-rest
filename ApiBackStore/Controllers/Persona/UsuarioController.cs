@@ -29,11 +29,18 @@ namespace ApiBackStore.Controllers.Persona
         [HttpGet]
         public async Task<ActionResult<object>> GetUsarios()
         {
-            List<UsuarioDo> encontrado = await servicio.Extension.UsuarioS.GetAllUsers();
-            return Ok(encontrado);
+            try
+            {
+                List<UsuarioDo> encontrado = await servicio.Extension.UsuarioS.GetAllUsers();
+                return Ok(encontrado);
+            }catch(Exception e)
+            {
+                throw new Exception();
+            }
+          
         }
         [HttpPost]
-        public async Task<ActionResult<object>> PostUsuario(  UsuarioDo entidad)
+        public async Task<ActionResult<object>> PostUsuario(UsuarioDo entidad)
         {
             IdentityResult ecnontrado = await servicio.Extension.UsuarioS.Registrar(entidad);
 

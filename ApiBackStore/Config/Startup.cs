@@ -88,6 +88,8 @@ namespace ApiBackStore.Config
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            app.UseSwagger();
+            app.UseSwaggerUI();
             app.UseCors("TODO");
             app.UseHttpsRedirection();
 
