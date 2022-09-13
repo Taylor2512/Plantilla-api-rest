@@ -19,6 +19,6 @@ namespace DOMAIN.Dtos.Persona
     public class LoginDto
     {
         public string Email { set; get; }
-        public string Passwork { set; get; }
+        public string password { set; get; }
     }
 }

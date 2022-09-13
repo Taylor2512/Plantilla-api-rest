@@ -69,7 +69,7 @@ namespace APLICATION.AppServices.Persona
 
         public async Task<SignInResult> Login(LoginDto credencialesUsuario)
         {
-            var resultado = await signInManager.PasswordSignInAsync(credencialesUsuario.Email, credencialesUsuario.Passwork,
+            var resultado = await signInManager.PasswordSignInAsync(credencialesUsuario.Email, credencialesUsuario.password,
                 isPersistent: false, lockoutOnFailure: false);
             return resultado;
         }
